@@ -62,6 +62,25 @@ static void runTestList() {
 	}
 }
 
+/**
+ * @brief Tests on const vector<int>
+ * 
+ * This test verifies:
+ * - easyfind supports const containers
+ * - returns a const iterator
+ */
+static void runTestConstVector() {
+	printHeadline("const vector<int> test");
+
+	const std::vector<int> constNumbers = {1, 2, 3, 4};
+	try {
+		auto it = easyfind(constNumbers, 4);
+		std::cout << "Found value in const vector: " << *it << std::endl;
+	} catch (const std::exception& e) {
+		std::cout << "Value 4 not found" << std::endl;
+	}
+}
+
 int main() {
 	runTestVector();
 	runTestList();
