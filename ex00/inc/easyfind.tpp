@@ -19,16 +19,26 @@ typename T::iterator easyfind(T& container, int value) {
 	if (it == container.end())
 		throw std::exception();
 	
-		return it;
+	return it;
 }
 
 /**
- * @brief Template function that finds the first occurrence of a value
- * in a const container of ints.
+ * @brief Find the first element that is equal to value in a const container.
+ * @tparam T Container type.
+ * @param container Const container to search.
+ * @param value Integer to find.
+ * @return Const iterator to the first matching element.
+ * @throws std::exception if the element is not found.
  */
 template <typename T>
 typename T::const_iterator easyfind(const T& container, int value) {
+	typename T::const_iterator it = std::find(container.begin(), container.end(), value);
 
+	// std::find returns end() when the value is not present
+	if (it == container.end())
+		throw std::exception();
+	
+	return it;
 }
 
 #endif
