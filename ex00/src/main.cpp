@@ -49,6 +49,7 @@ static void runTestList() {
 	std::list<int> values = {5, 7, 3, 7, 9};
 	try {
 		auto it = easyfind(values, 7);
+		(void)it;
 		std::cout << "Found first 7" << std::endl;
 	} catch (const std::exception& e) {
 		std::cout << "Value 7 not found" << std::endl;
