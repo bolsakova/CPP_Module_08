@@ -100,6 +100,28 @@ static void testAddRange() {
 	std::cout << "Longest span: " << sp.longestSpan() << std::endl;
 }
 
+/**
+ * @brief Test 5: AddRange overflow detection.
+ * 
+ * This test verifies:
+ * - addRange() correctly detects when adding the entire range would overflow
+ * - it throws an exception if capacity is exceeded
+ */
+static void testAddRangeOverflow() {
+	printHeader("Test 5: AddRange Overflow Detection");
+
+	Span sp(3);
+	std::vector<int> values = {1, 2, 3, 4, 5};
+
+	try {
+		sp.addRange(values.begin(), values.end());
+		std::cout << "ERROR: Should have thrown overflow!" << std::endl;
+	} catch (const std::overflow_error& e) {
+		std::cout << "Correctly caught overflow during addRange: " << e.what() << std::endl;
+	}
+
+}
+
 int main() {
 	testSubjectExapmle();
 	testOverflow();
