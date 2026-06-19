@@ -9,7 +9,7 @@
  * This ensure consistent overflow checking for each added element.
  */
 template <typename InputIt>
-void addRange(InputIt first, InputIt last) {
+void Span::addRange(InputIt first, InputIt last) {
 	for (InputIt it = first; it != last; ++it)
 		addNumber(*it);
 }
