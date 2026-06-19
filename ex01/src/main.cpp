@@ -204,5 +204,7 @@ int main() {
 	testEqualElements();
 	testLargeSpan();
 	testCopySemantics();
+
+	std::cout << "\n=== All tests completed! ===\n";
 	return 0;
 }
