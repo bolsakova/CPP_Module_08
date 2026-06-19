@@ -1,6 +1,7 @@
 #include "../inc/Span.hpp"
 #include <algorithm>
 #include <limits>
+#include <stdexcept>
 
 /**
  * @brief Constructs a Span with a fixed capacity
@@ -20,8 +21,16 @@ Span& Span::operator=(const Span& other) {
 
 Span::~Span() {}
 
-// add a single number
-void Span::addNumber(int number) {}
+/**
+ * @brief Adds one integer to the container
+ * @param number Integer to store.
+ * @throws std::overflow_error If the container already reached its capacity
+ */
+void Span::addNumber(int number) {
+	if (_data.size() >= _maxSize)
+		throw std::overflow_error("Span is full");
+	_data.push_back(number);
+}
 
 // smallest diff between any 2 numbers
 unsigned int Span::shortestSpan() const {}
