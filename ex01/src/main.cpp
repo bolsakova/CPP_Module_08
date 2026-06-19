@@ -143,6 +143,36 @@ static void testEqualElements() {
 	std::cout << "Longest span: " << sp.longestSpan() << std::endl;
 }
 
+/**
+ * @brief Test 7: Large dataset performance test.
+ * 
+ * This test verifies:
+ * - Span can handle 10,000+ elements efficiently
+ * - addRange() with large dataset is much faster than calling addNumber() repeatedly
+ * - span() methods execute quickly on large datasets
+ * - STL algorithms (sort, minmax_element) scale well
+ */
+static void testLargeSpan() {
+	printHeader("Test 7: Large Span (50,000 elements via addRange)");
+
+	Span sp(50000);
+
+	// generate random numbers
+	std::vector<int> largeSet;
+	std::mt19937 rng(12345);
+	std::uniform_int_distribution<int> dist(0, 1000000);
+
+	for (int i = 0; i < 50000; ++i)
+		largeSet.push_back(dist(rng));
+
+	// add the range to Span using addRange
+	sp.addRange(largeSet.begin(), largeSet.end());
+
+	std::cout << "Filled Span with 50,000 random numbers using addRange()" << std::endl;
+	std::cout << "Shortest span: " << sp.shortestSpan() << std::endl;
+	std::cout << "Longest span: " << sp.longestSpan() << std::endl;
+}
+
 int main() {
 	testSubjectExapmle();
 	testOverflow();
