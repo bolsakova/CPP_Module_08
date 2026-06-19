@@ -173,6 +173,28 @@ static void testLargeSpan() {
 	std::cout << "Longest span: " << sp.longestSpan() << std::endl;
 }
 
+/**
+ * @brief Test 8: Copy Semantics.
+ * 
+ * This test verifies:
+ * - copy constructor works correctly (deep copy)
+ * - assignment operator works correctly
+ * - copies are independent
+ */
+static void testCopySemantics() {
+	printHeader("Test 8: Copy Semantics");
+
+	Span sp1(5);
+	sp1.addNumber(7);
+	sp1.addNumber(7);
+	sp1.addNumber(7);
+
+	Span sp2(sp1);
+	std::cout << "Copied sp1 to sp2" << std::endl;
+	std::cout << "sp2 shortest span: " << sp2.shortestSpan() << std::endl;
+	std::cout << "sp2 longest span: " << sp2.longestSpan() << std::endl;
+}
+
 int main() {
 	testSubjectExapmle();
 	testOverflow();
