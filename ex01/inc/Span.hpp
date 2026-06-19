@@ -2,20 +2,34 @@
 #define SPAN_HPP
 
 #include <exception>
+#include <vector>
 
 /**
- * @brief Template function that finds the first occurrence of a value
- * in a container of ints.
+ * @brief Span stores a fixed number of integers and computes spans.
  */
-template <typename T>
-typename T::iterator easyfind(T& container, int value);
+class Span {
+	private:
+		std::vector<int> _data;
+		unsigned int _maxSize;
+	public:
+		// Construct a Span with capacity N
+		explicit Span(unsigned int n);
+		Span(const Span& other);
+		Span& operator=(const Span& other);
+		~Span();
 
-/**
- * @brief Template function that finds the first occurrence of a value
- * in a const container of ints.
- */
-template <typename T>
-typename T::const_iterator easyfind(const T& container, int value);
-
+		// add numbers from a range of iterators
+		template <typename InputIt>
+		void addRange(InputIt first, InputIt last);
+		
+		// add a single number
+		void addNumber(int number);
+		// smallest diff between any 2 numbers
+		unsigned int shortestSpan() const;
+		// largest diff between any 2 numbers
+		unsigned int longestSpan() const;
+		// count of stored numbers
+		unsigned int size() const;
+};
 
 #endif
