@@ -32,4 +32,6 @@ class Span {
 		unsigned int size() const;
 };
 
+#include "Span.tpp"
+
 #endif
