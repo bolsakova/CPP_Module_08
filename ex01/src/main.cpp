@@ -122,6 +122,27 @@ static void testAddRangeOverflow() {
 
 }
 
+/**
+ * @brief Test 6: All elements are equal.
+ * 
+ * This test verifies:
+ * - when all elements are the same, shortestSpan() returns 0
+ * - longestSpan() also returns 0 (diff between same values)
+ */
+static void testEqualElements() {
+	printHeader("Test 6: All Elements Equal");
+
+	Span sp(5);
+	sp.addNumber(7);
+	sp.addNumber(7);
+	sp.addNumber(7);
+	sp.addNumber(7);
+
+	std::cout << "All elements are 7" << std::endl;
+	std::cout << "Shortest span: " << sp.shortestSpan() << std::endl;
+	std::cout << "Longest span: " << sp.longestSpan() << std::endl;
+}
+
 int main() {
 	testSubjectExapmle();
 	testOverflow();
