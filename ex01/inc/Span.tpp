@@ -1,3 +1,6 @@
+#ifndef SPAN_TPP
+#define SPAN_TPP
+
 #include "Span.hpp"
 
 /**
@@ -10,3 +13,5 @@ void addRange(InputIt first, InputIt last) {
 	for (InputIt it = first; it != last; ++it)
 		addNumber(*it);
 }
+
+#endif
