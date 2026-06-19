@@ -41,7 +41,7 @@ void Span::addNumber(int number) {
  */
 unsigned int Span::shortestSpan() const {
 	if (_data.size() < 2)
-		throw std::runtime_error("Not enough elements to  compute span");
+		throw std::length_error("Not enough elements to compute span");
 	
 	std::vector<int> sorted(_data);
 	std::sort(sorted.begin(), sorted.end());
@@ -64,7 +64,7 @@ unsigned int Span::shortestSpan() const {
  */
 unsigned int Span::longestSpan() const {
 	if (_data.size() < 2)
-		throw std::runtime_error("Not enough elements to  compute span");
+		throw std::length_error("Not enough elements to  compute span");
 
 	std::vector<int>::const_iterator minIt = std::min_element(_data.begin(), _data.end());
 	std::vector<int>::const_iterator maxIt = std::max_element(_data.begin(), _data.end());
