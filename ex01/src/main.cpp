@@ -53,6 +53,7 @@ static void testOverflow() {
 
 
 }
+
 /**
  * @brief Test 3: Insufficient elements exception.
  * 
@@ -73,6 +74,30 @@ static void testInsufficientElements() {
 		std::cout << "Correctly caught error: " << e.what() << std::endl;
 	}
 
+}
+
+/**
+ * @brief Test 4: Adding range of iterators.
+ * 
+ * This test verifies:
+ * - addRange() successfully adds multiple elements from a vector
+ * - the range is added correctly without exceeding capacity
+ * - this is much more convenient than calling addNumber() thousands of times
+ */
+static void testAddRange() {
+	printHeader("Test 4: Adding Range of Iterators");
+
+	Span sp(10);
+
+	// create a vector of values
+	std::vector<int> values = {5, 3, 17, 9, 11};
+
+	// add the range to Span using addRange
+	sp.addRange(values.begin(), values.end());
+
+	std::cout << "Added 5 elements via addRange()" << std::endl;
+	std::cout << "Shortest span: " << sp.shortestSpan() << std::endl;
+	std::cout << "Longest span: " << sp.longestSpan() << std::endl;
 }
 
 int main() {
