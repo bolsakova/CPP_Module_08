@@ -55,8 +55,27 @@ unsigned int Span::shortestSpan() const {
 	return shortest;
 }
 
-// largest diff between any 2 numbers
-unsigned int Span::longestSpan() const {}
+/**
+ * @brief Returns the longest distance between any two stored numbers.
+ * The longest span is the difference between the smallest and the
+ * largest stored values.
+ * @return The longest span.
+ * @throws std::runtime_error If there are fewer than two stored numbers.
+ */
+unsigned int Span::longestSpan() const {
+	if (_data.size() < 2)
+		throw std::runtime_error("Not enough elements to  compute span");
 
-// count of stored numbers
-unsigned int Span::size() const {}
+	std::vector<int>::const_iterator minIt = std::min_element(_data.begin(), _data.end());
+	std::vector<int>::const_iterator maxIt = std::max_element(_data.begin(), _data.end());
+	
+	return static_cast<unsigned int>(*maxIt - *minIt);
+}
+
+/**
+ * @brief Number of stored ints.
+ * @return Current amount of stored values.
+ */
+unsigned int Span::size() const {
+	return static_cast<unsigned int>(_data.size());
+}
