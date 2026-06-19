@@ -32,8 +32,28 @@ void Span::addNumber(int number) {
 	_data.push_back(number);
 }
 
-// smallest diff between any 2 numbers
-unsigned int Span::shortestSpan() const {}
+/**
+ * @brief Returns the shortest distance between any two stored numbers.
+ * The function sorts a copy of the stored values and checks only 
+ * adjacent elements, which is enough to find the minimal difference.
+ * @return The shortest span.
+ * @throws std::runtime_error If there are fewer than two stored numbers.
+ */
+unsigned int Span::shortestSpan() const {
+	if (_data.size() < 2)
+		throw std::runtime_error("Not enough elements to  compute span");
+	
+	std::vector<int> sorted(_data);
+	std::sort(sorted.begin(), sorted.end());
+
+	unsigned int shortest = std::numeric_limits<unsigned int>::max();
+	for (std::vector<int>::size_type i = 1; i < sorted.size(); ++i) {
+		unsigned int diff = static_cast<unsigned int>(sorted[i] - sorted[i-1]);
+		if (diff < shortest)
+			shortest = diff;
+	}
+	return shortest;
+}
 
 // largest diff between any 2 numbers
 unsigned int Span::longestSpan() const {}
