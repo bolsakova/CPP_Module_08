@@ -186,8 +186,8 @@ static void testCopySemantics() {
 
 	Span sp1(5);
 	sp1.addNumber(7);
-	sp1.addNumber(7);
-	sp1.addNumber(7);
+	sp1.addNumber(1);
+	sp1.addNumber(10);
 
 	Span sp2(sp1);
 	std::cout << "Copied sp1 to sp2" << std::endl;

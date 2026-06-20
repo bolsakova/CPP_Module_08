@@ -12,7 +12,11 @@ class Span {
 		std::vector<int> _data;
 		unsigned int _maxSize;
 	public:
+		// отсутствие default ctor - у Span нет естественного состояния "без размера", потому что объект обязан иметь лимит на кол-во чисел
+
 		// Construct a Span with capacity N
+		// - explicit нужен, чтобы запретить неявное преобразование из числа в Span
+		// - без него компилятор мог бы воспринимать 5 как объект, а не ёмкость контейнера
 		explicit Span(unsigned int n);
 		Span(const Span& other);
 		Span& operator=(const Span& other);
