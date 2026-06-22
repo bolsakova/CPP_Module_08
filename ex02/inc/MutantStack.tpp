@@ -34,11 +34,25 @@ typename MutantStack<T>::iterator MutantStack<T>::end() {
 
 // Const iterators
 
+/**
+ * @brief Const version of begin().
+ * @tparam T Element type.
+ * @return const_iterator to the beginnign of the underlying container.
+ */
 template <typename T>
-typename MutantStack<T>::const_iterator MutantStack<T>::begin() const {}
+typename MutantStack<T>::const_iterator MutantStack<T>::begin() const {
+	return this->c.begin();
+}
 
+/**
+ * @brief Const version of end().
+ * @tparam T Element type.
+ * @return const_iterator to the end of the underlying container.
+ */
 template <typename T>
-typename MutantStack<T>::const_iterator MutantStack<T>::end() const {}
+typename MutantStack<T>::const_iterator MutantStack<T>::end() const {
+	return this->c.end();
+}
 
 // Reverse iterators
 
