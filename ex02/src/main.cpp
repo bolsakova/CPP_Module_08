@@ -37,7 +37,15 @@ int main() {
 		std::cout << *it << ' ';
 	std::cout << '\n';
 
+	// const reverse iteration
+	std::cout << "const reverse iteration: ";
+	for (MutantStack<int>::const_reverse_iterator crit = cms.rbegin(); crit != cms.rend(); ++crit)
+		std::cout << *crit << ' ';
+	std::cout << '\n';
+
 	// compatibility test: MutantStack is a std::stack
+	std::stack<int> s(ms);
+	std::cout << "copy to std::stack top: " << s.top() << '\n';
 
 	std::cout << "\n=== All tests completed! ===\n";
 	return 0;
