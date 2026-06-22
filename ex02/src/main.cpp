@@ -11,10 +11,18 @@ int main() {
 	
 	ms.pop();
 	std::cout << "size after pop: " << ms.size() << '\n'; // 1
-
+	
 	// fill with more values
-
+	ms.push(3);
+	ms.push(5);
+	ms.push(737);
+	ms.push(0);
+	
 	// iterate from bottom -> top
+	std::cout << "forward iteration: ";
+	for (MutantStack<int>::iterator it = ms.begin(); it != ms.end(); ++it)
+		std::cout << *it << ' ';
+	std::cout << '\n';
 
 	// reverse iteration from top -> bottom
 
