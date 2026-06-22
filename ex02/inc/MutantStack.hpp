@@ -32,14 +32,20 @@ class MutantStack : public std::stack<T> {
 
 		// iterator to the first element (bottom of the stack)
 		iterator begin();
-		// iter
+		// iterator to one-past-last element (top + 1)
 		iterator end();
+		// const overload of begin()
 		const_iterator begin() const;
+		// const overload of end()
 		const_iterator end() const;
 
+		// reverse iterator starting at the top of the stack
 		reverse_iterator rbegin();
+		// reverse iterator one-past-last in reverse traversal
 		reverse_iterator rend();
+		// const overload of rbegin()
 		const_reverse_iterator rbegin() const;
+		// const overload of rend()
 		const_reverse_iterator rend() const;испр
 };
 
