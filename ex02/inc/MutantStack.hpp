@@ -46,7 +46,7 @@ class MutantStack : public std::stack<T> {
 		// const overload of rbegin()
 		const_reverse_iterator rbegin() const;
 		// const overload of rend()
-		const_reverse_iterator rend() const;испр
+		const_reverse_iterator rend() const;
 };
 
 #include "MutantStack.tpp"
