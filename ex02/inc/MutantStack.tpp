@@ -78,10 +78,24 @@ typename MutantStack<T>::reverse_iterator MutantStack<T>::rend() {
 
 // Const reverse iterators
 
+/**
+ * @brief Const version of rbegin().
+ * @tparam T Element type.
+ * @return const_reverse_iterator pointing to the first element in reverse order.
+ */
 template <typename T>
-typename MutantStack<T>::const_reverse_iterator MutantStack<T>::rbegin() const {}
+typename MutantStack<T>::const_reverse_iterator MutantStack<T>::rbegin() const {
+	return this->c.rbegin();
+}
 
+/**
+ * @brief Const version of rend().
+ * @tparam T Element type.
+ * @return const_reverse_iterator pointing to the end of reverse traversal.
+ */
 template <typename T>
-typename MutantStack<T>::const_reverse_iterator MutantStack<T>::rend() const {}
+typename MutantStack<T>::const_reverse_iterator MutantStack<T>::rend() const {
+	return this->c.rend();
+}
 
 #endif
