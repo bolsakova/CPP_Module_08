@@ -25,6 +25,10 @@ int main() {
 	std::cout << '\n';
 
 	// reverse iteration from top -> bottom
+	std::cout << "reverse iteration: ";
+	for (MutantStack<int>::reverse_iterator rit = ms.rbegin(); rit != ms.rend(); ++rit)
+		std::cout << *rit << ' ';
+	std::cout << '\n';
 
 	// const iteration test
 
