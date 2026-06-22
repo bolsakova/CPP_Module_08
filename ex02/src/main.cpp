@@ -31,6 +31,11 @@ int main() {
 	std::cout << '\n';
 
 	// const iteration test
+	const MutantStack<int>& cms = ms;
+	std::cout << "const forward iteration: ";
+	for (MutantStack<int>::const_iterator it = cms.begin(); it != cms.end(); ++it)
+		std::cout << *it << ' ';
+	std::cout << '\n';
 
 	// compatibility test: MutantStack is a std::stack
 
