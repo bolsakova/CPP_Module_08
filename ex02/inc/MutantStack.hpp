@@ -4,15 +4,22 @@
 #include <stack>
 
 /**
- * @brief MutantStack
- * - thin wrapper around std::stack that exposes the underlying container's iterators
- * - template class; uses std::stack<T>::container_type for iterator types.
+ * @brief MutantStack - thin wrapper around std::stack that exposes iterator access
+ * @tparam T type of elements stored in the stack.
+ * 
+ * @details
+ * This class inherits from `std::stack<T>` and exposes the underlying
+ * container's iterator interface (begin/end, rbegin/rend) so the stack
+ * can be iterated from bottom to top or in reverse without changing
+ * LIFO semantics of push/pop/top.
  */
 template <typename T>
 class MutantStack : public std::stack<T> {
 	public:
+		// Underlying container type ised by std::stack
 		typedef typename std::stack<T>::container_type container_type;
 
+		// Iterator types forwarded from the underlying container
 		typedef typename container_type::iterator iterator;
 		typedef typename container_type::const_iterator const_iterator;
 		typedef typename container_type::reverse_iterator reverse_iterator;
@@ -23,7 +30,9 @@ class MutantStack : public std::stack<T> {
 		MutantStack& operator=(const MutantStack& other) = default;
 		~MutantStack() = default;
 
+		// iterator to the first element (bottom of the stack)
 		iterator begin();
+		// iter
 		iterator end();
 		const_iterator begin() const;
 		const_iterator end() const;
@@ -31,7 +40,7 @@ class MutantStack : public std::stack<T> {
 		reverse_iterator rbegin();
 		reverse_iterator rend();
 		const_reverse_iterator rbegin() const;
-		const_reverse_iterator rend() const;
+		const_reverse_iterator rend() const;испр
 };
 
 #include "MutantStack.tpp"
